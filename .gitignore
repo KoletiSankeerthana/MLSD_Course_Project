@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Data and Models (Managed by DVC)
+data/*.csv
+models/*.pkl
+artifacts/
+
+# OS
+.DS_Store
+Thumbs.db
