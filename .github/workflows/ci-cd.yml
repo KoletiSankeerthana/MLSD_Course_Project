@@ -7,7 +7,7 @@ on:
 
 jobs:
 
-  build:
+  build-and-validate:
 
     runs-on: ubuntu-latest
 
@@ -24,7 +24,28 @@ jobs:
       - name: Install Dependencies
         run: |
           pip install -r requirements.txt
+          pip install "dvc[s3]"
+
+      - name: Configure AWS Credentials
+        run: |
+          dvc remote modify myremote access_key_id ${{ secrets.AKIA6HVUP376Y2ZVPVQ7 }}
+          dvc remote modify myremote secret_access_key ${{ secrets.SqD9YFJq1nNXWZ2S+7ydSWYK/S/5Hp3AFbl+9a97 }}
+
+      - name: Pull Data and Model from S3
+        run: |
+          dvc pull
+
+      - name: Verify Project Structure
+        run: |
+          ls
+          ls src
+          ls streamlit_app
+          ls models
 
       - name: Build Docker Image
         run: |
           docker build -t employee-salary-app .
+
+      - name: Validate Docker Build
+        run: |
+          docker images
