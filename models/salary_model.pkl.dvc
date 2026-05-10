@@ -1,0 +1,5 @@
+outs:
+- md5: 6a942f3f176d5640be48ec95c9d6fe02
+  size: 139186
+  hash: md5
+  path: salary_model.pkl
