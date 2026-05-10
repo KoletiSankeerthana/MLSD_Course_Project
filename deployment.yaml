@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: employee-salary-deployment
+
+spec:
+  replicas: 3
+
+  selector:
+    matchLabels:
+      app: employee-salary-app
+
+  template:
+    metadata:
+      labels:
+        app: employee-salary-app
+
+    spec:
+      containers:
+      - name: employee-salary-container
+        image: koletisankeerthana/employee-salary-app:latest
+
+        ports:
+        - containerPort: 8501
