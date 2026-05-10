@@ -36,7 +36,8 @@ def train_model(data_path='data/adult.csv', model_path='models/salary_model.pkl'
     pipeline = Pipeline([
         ('scaler', StandardScaler()),
         ('model', RandomForestClassifier(
-            n_estimators=100,
+            n_estimators=150,
+            max_depth=10,
             random_state=42
         ))
     ])
