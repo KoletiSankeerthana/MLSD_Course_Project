@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-
   build-and-validate:
 
     runs-on: ubuntu-latest
@@ -28,8 +27,8 @@ jobs:
 
       - name: Configure AWS Credentials
         run: |
-          dvc remote modify myremote access_key_id ${{ secrets.AKIA6HVUP376Y2ZVPVQ7 }}
-          dvc remote modify myremote secret_access_key ${{ secrets.SqD9YFJq1nNXWZ2S+7ydSWYK/S/5Hp3AFbl+9a97 }}
+          dvc remote modify myremote access_key_id "${{ secrets.AKIA6HVUP376Y2ZVPVQ7 }}"
+          dvc remote modify myremote secret_access_key "${{ secrets.SqD9YFJq1nNXWZ2S+7ydSWYK/S/5Hp3AFbl+9a97 }}"
 
       - name: Pull Data and Model from S3
         run: |
